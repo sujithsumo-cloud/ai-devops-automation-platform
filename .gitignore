@@ -1,8 +1,14 @@
-﻿.venv/
-venv/
+﻿# Terraform local files and state
+terraform/.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+*.tfvars
+*.tfvars.json
+
+# Python local files
+.venv/
 __pycache__/
 *.py[cod]
 .env
-.env.*
-!.env.example
-.pytest_cache/
