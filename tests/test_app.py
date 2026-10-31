@@ -1,4 +1,5 @@
-﻿from app.main import app
+﻿
+from app.main import app
 
 
 def test_home_endpoint():
@@ -8,8 +9,9 @@ def test_home_endpoint():
     assert response.status_code == 200
 
     data = response.get_json()
-    assert data["project"] == "AI-Powered DevOps Automation and Intelligence Platform"
     assert data["message"] == "Application is running"
+    assert data["environment"] == "BLUE"
+    assert data["version"] == "v1"
 
 
 def test_health_endpoint():
@@ -17,4 +19,8 @@ def test_health_endpoint():
     response = client.get("/health")
 
     assert response.status_code == 200
-    assert response.get_json() == {"status": "healthy"}
+
+    data = response.get_json()
+    assert data["status"] == "healthy"
+    assert data["environment"] == "BLUE"
+    assert data["version"] == "v1"
